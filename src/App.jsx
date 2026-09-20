@@ -111,11 +111,20 @@ function App() {
         ...productData,
       };
 
+      // Update UI immediately
       setProducts((currentProducts) =>
         currentProducts.map((product) =>
           product.id === editingProduct.id ? optimisticProduct : product,
         ),
       );
+
+      // Products created during this session may not exist
+      // permanently on My JSON Server, so update them locally.
+      if (editingProduct.isLocal) {
+        handleCloseForm();
+        setIsSubmitting(false);
+        return;
+      }
 
       try {
         const updatedProduct = await updateProduct(
@@ -136,6 +145,7 @@ function App() {
 
         handleCloseForm();
       } catch (err) {
+        // Roll back if the API request fails
         setProducts((currentProducts) =>
           currentProducts.map((product) =>
             product.id === originalProduct.id ? originalProduct : product,
@@ -156,6 +166,7 @@ function App() {
       ...productData,
       id: temporaryId,
       createdAt: new Date().toISOString(),
+      isLocal: true,
     };
 
     setProducts((currentProducts) => [...currentProducts, optimisticProduct]);
