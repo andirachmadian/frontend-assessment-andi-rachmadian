@@ -59,24 +59,4 @@ export function processUserData(users) {
     return result;
 }
 
-const testUsers = [
-    { id: 1, name: "Andi", age: 25, gender: "male"},
-    { id: 2, name: "Budi", age: 30, gender: "male"},
 
-    // Under 18
-    { id: 3, name: "Rina", age: 16, gender: "female"},
-
-    // Missing age
-    { id: 4, name: "Siti", gender: "female"},
-
-    // Missing gender
-    { id: 5, name: "Doni", age: 24},
-
-    // Valid
-    { id: 6, name: "Sarah", age: 28, gender: "female"}
-];
-
-console.log(JSON.stringify(processUserData(testUsers), null, 2));
-
-console.log("Empty array:");
-console.log(processUserData([]));
