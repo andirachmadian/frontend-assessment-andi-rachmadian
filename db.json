@@ -12,13 +12,13 @@
             "id": 2,
             "name": "Ceramic Pour-Over Coffee Set",
             "category": "Home & Kitchen",
-            "price": 350000
+            "price": 350000,
             "status": "In Stock",
             "createdAt": "2024-02-02T14:10:00.000Z"
         },
         {
             "id": 3,
-            "name": "Running Shoes - Trail Edition",
+            "name": "Running Shoes — Trail Edition",
             "category": "Apparel",
             "price": 1450000,
             "status": "Out of Stock",
@@ -30,7 +30,7 @@
             "category": "Home & Kitchen",
             "price": 4250000,
             "status": "In Stock",
-            "createdAt": "2024-04-2T08:00:00.000Z"
+            "createdAt": "2024-04-20T08:00:00.000Z"
         }
     ]
 }
